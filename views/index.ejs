@@ -4,15 +4,15 @@
 
         <form method="POST" action="/users/add">
             <label>First Name</label><br>
-            <input type="text" name="firstName"><br>
+            <input class="user-info" type="text" name="firstName"><br>
 
             <label>Last Name</label><br>
-            <input type="text" name="lastName"><br>
+            <input class="user-info" type="text" name="lastName"><br>
 
             <label>Email</label><br>
-            <input type="text" name="eMail"><br>
+            <input class="user-info" type="text" name="eMail"><br>
 
-            <input type="submit" value="submit">
+            <input class="user-submit" type="submit" value="submit">
         </form>
 
         <ul>
@@ -21,6 +21,31 @@
                 <%= users.firstName %> <%= users.lastName %>
             </li>
         <% }) %>
+
+        <% role.objects.forEach(function (objects) {%>
+            <div class="card"><% if (objects.party == 'Republican') { %>
+                <div class="rep card-title"><%} else {%>
+                <div class="dem card-title"><% } %>
+                    <%= objects.person.firstname %> <%= objects.person.lastname %>
+                </div>
+
+                <div class="card-body">
+                    <ul class="sen-info">
+                        <li class="sen-item">
+                            State: <%=objects.state %> 
+                        </li>
+                        <li class="sen-item">
+                            <a class="sen-link" target='_blank' href="<%=objects.person.link %>">Gov Track Link </a>
+                        </li>
+                        <li class="sen-item">
+                            <a class="sen-link" target='_blank' href="<%=objects.website %>">Campaign Site</a> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <% }) %>
+
+        <% console.log(role.objects[0].person.lastName) %>
 
         </ul>
     </body>

@@ -2,16 +2,18 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
+var fs = require('fs');
 
 var app = express();
 
 /*
 var logger = function(req, res, next) {
-    console.log('Logging');
+    console.log(role);
     next();
 
-    app.use(logger);
+    
 }
+app.use(logger);
 */
 
 //View Engine
@@ -23,7 +25,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 //Set Static Files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/json', express.static(path.join(__dirname, 'json')));
+
+var role;
+
+fs.readFile('json/role.json', 'utf8', function (err, data) {
+    if (err) throw err;
+    role = JSON.parse(data);
+});
+
+
 
 var users = [
     {
@@ -49,7 +61,8 @@ var users = [
 app.get('/', function (req, res) {
     res.render('index', {
         title: 'Home',
-        users: users
+        users: users,
+        role: role
     });
 });
 

@@ -1,0 +1,93 @@
+/*StyleSheet for app.js*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav {
+    width: 100%;
+    background: #f2f2f2;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    padding: 40px 40px;
+}
+
+.user-info {
+    padding: 5px 10px;
+    font-size: 20px;
+    margin: 5px 20px;
+}
+
+label {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.user-submit {
+    padding: 10px 35px;
+    font-size: 18px;
+    background: rgb(102, 180, 252);
+    outline: 0;
+    border: 0;
+    margin-left: 20px;
+}
+
+.user-submit:active {
+    background: #999;
+
+}
+
+.card {
+    width: 15%;
+    position: relative;
+    float: left;
+    margin: 15px 2%;
+}
+
+.dem {
+    background-color: dodgerblue;
+    color: white;
+    border: solid dodgerblue 1px;
+}
+
+.rep {
+    background-color: orangered;
+    color: white;
+    border: solid orangered 1px;
+}
+
+.card-title {
+    border-radius: 6px 6px 0 0;
+    padding: 10px 30px;
+    font-size: 19px;
+    font-weight: bold;
+    height: 70px;
+    margin: auto;
+}
+
+.card-body {
+    border: solid #333 1px;
+    border-radius: 0 0 6px 6px;
+    padding: 20px;
+}
+
+.sen-info {
+    list-style: none;
+}
+
+.sen-link {
+    text-decoration: none;
+    color: #333;
+}
+
+.sen-link:hover {
+    color: #888;
+}
